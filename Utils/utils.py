@@ -6,7 +6,6 @@ from pymongo.cursor import Cursor
 import json
 from flask import current_app as app
 from mongoengine import connect
-from Models import Config
 
 def bson_handler(x):
     """
@@ -45,11 +44,6 @@ def json_response(func):
 
     return func_wrapper
 
-def initialize(func):
-    def func_wraper(*args,**kwargs):
-        configs = Config.objects.get(config_id='initials')
-        app.config.from_object(configs)
-        return func(*args, **kwargs)
 
 
 def str_import(name):
