@@ -2,7 +2,7 @@
 from flask import Flask
 from flask import request
 from flask_mongoengine import MongoEngine, MongoEngineSessionInterface
-
+from Models.Config import Config
 from Utils.utils import json_response, str_import
 
 db = MongoEngine()
@@ -11,11 +11,12 @@ app.config['MONGODB_SETTINGS'] = {
     'db': 'my_app_database',
     'host': 'mongodb://localhost:27017/my_app_database'
 }
-app.config['SECRET_KEY'] = 'yolo oso dn paei'
-app.config['ACTIVATION_SECRET_KEY'] = 'oti na nai'
+
 db.init_app(app)
 
 app.session_interface = MongoEngineSessionInterface(db)
+configs = Config.objects.get(config_id='initials')
+app.config.from_object(configs)
 
 routes = {
     "/": 'views.test.test',
