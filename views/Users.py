@@ -9,11 +9,11 @@ from flask import g
 
 
 class user(BaseView):
+
     @RequestValidation.parameters_assertion(parameters=['id'])
     def get(self):
         id = self.request.args['id']
         user = User.objects.get(pk=id)
-        print(user.to_mongo(fields=['_id', 'username']))
         return user.to_mongo(fields=['_id', 'username'])
 
     @RequestValidation.parameters_assertion(parameters=['name', 'password'])

@@ -4,6 +4,10 @@ from flask import request
 from flask_mongoengine import MongoEngine, MongoEngineSessionInterface
 from Models.Config import Config
 from Utils.utils import json_response, str_import
+import URLs
+
+from flask_mail import Mail
+
 
 db = MongoEngine()
 app = Flask(__name__)
@@ -18,11 +22,9 @@ app.session_interface = MongoEngineSessionInterface(db)
 configs = Config.objects.get(config_id='initials')
 app.config.from_object(configs)
 
-routes = {
-    "/": 'views.test.test',
-    "/user": 'views.Users.user',
-    "/login": "views.Users.login"
-}
+print(configs.to_json())
+print(app.config.get('DEBUG'))
+routes = URLs.get_urls(debug=app.config.get('DEBUG'))
 
 for route in routes:
     imported_class = str_import(routes[route])
