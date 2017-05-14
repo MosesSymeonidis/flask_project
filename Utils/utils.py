@@ -15,6 +15,12 @@ def bson_handler(x):
     """
     if isinstance(x, datetime):
         return x.isoformat()
+    elif x in [True,False]:
+        if x :
+            return 'True'
+        else:
+            return 'False'
+
     elif isinstance(x, objectid.ObjectId):
         return str(x)
     elif callable(getattr(x, "to_mongo", None)):

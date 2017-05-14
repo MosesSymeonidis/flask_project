@@ -1,6 +1,7 @@
 main_urls = {
     "/user": 'views.Users.user',
-    "/login": "views.Users.login"
+    "/login": "views.Users.login",
+    "/activation/<string:user_id>":"views.Users.activation"
 }
 
 debug_urls = {'/debug':'views.test.test'}

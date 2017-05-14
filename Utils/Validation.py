@@ -2,11 +2,11 @@ class RequestValidation():
     @staticmethod
     def parameters_assertion(parameters):
         def assertions(func):
-            def func_wrapper(self):
+            def func_wrapper(self,*args,**kwargs):
                 for parameter in parameters:
                     if parameter not in self.request.args:
                         raise Exception('Error parameter')
-                func(self)
+                return func(self,*args,**kwargs)
 
             return func_wrapper
 

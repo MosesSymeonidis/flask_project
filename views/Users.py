@@ -61,5 +61,11 @@ class login(BaseView):
 
 
 class activation(BaseView):
-    def get(self):
-        pass
+
+
+    @RequestValidation.parameters_assertion(parameters=['activation_code'])
+    def get(self, **kwargs):
+        user = User.objects.get(pk=kwargs['user_id'])
+        res = user.verify_activation(self.request.args.get('activation_code'))
+
+        return { 'ok': res}

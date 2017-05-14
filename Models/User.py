@@ -57,6 +57,20 @@ class User(Document):
         if not self.activated:
             raise Exception
 
+    def verify_activation( self,activation_code ):
+        s = Serializer(app.config['ACTIVATION_SECRET_KEY'])
+        try:
+            data = s.loads(activation_code)
+        except SignatureExpired:
+            return False
+        except BadSignature:
+            return False
+
+        if self.id == data['id']:
+            self.marked_as_active()
+            return True
+        return False
+
     @staticmethod
     def verify_auth_token(token):
         s = Serializer(app.config['SECRET_KEY'])
