@@ -4,7 +4,7 @@ from flask_httpauth import HTTPBasicAuth
 from itsdangerous import (TimedJSONWebSignatureSerializer
                           as Serializer, BadSignature, SignatureExpired)
 from flask import current_app as app
-from flask import g
+from flask import g as global_storage
 import datetime
 
 
@@ -95,5 +95,5 @@ class User(Document):
             user = User.objects.get(username=username_or_token)
             if not user or not user.check_password(password):
                 return False
-        g.user = user
+        global_storage.user = user
         return True

@@ -5,7 +5,7 @@ from Models.User import User
 
 auth = User.auth
 
-from flask import g
+from flask import g as global_storage
 
 
 class user(BaseView):
@@ -29,7 +29,7 @@ class user(BaseView):
     @RequestValidation.parameters_assertion(parameters=['password'])
     def put(self):
         password = self.request.args['password']
-        user = g.user
+        user = global_storage.user
 
         user.assertion_is_activated()
         user.assertion_is_not_deleted()
@@ -41,7 +41,7 @@ class user(BaseView):
 
     @auth.login_required
     def delete(self):
-        user = g.user
+        user = global_storage.user
         user.assertion_is_not_deleted()
 
         user.marked_as_deleted()
@@ -51,7 +51,7 @@ class user(BaseView):
 class login(BaseView):
     @auth.login_required
     def get(self):
-        user = g.user
+        user = global_storage.user
 
         user.assertion_is_not_deleted()
         user.assertion_is_activated()
@@ -62,10 +62,16 @@ class login(BaseView):
 
 class activation(BaseView):
 
-
     @RequestValidation.parameters_assertion(parameters=['activation_code'])
     def get(self, **kwargs):
         user = User.objects.get(pk=kwargs['user_id'])
         res = user.verify_activation(self.request.args.get('activation_code'))
 
         return { 'ok': res}
+
+    @auth.login_required
+    def post(self):
+        user = global_storage.user
+        user.assertion_is_not_deleted()
+        #TODO resend activation mail
+        return {'success':True}
