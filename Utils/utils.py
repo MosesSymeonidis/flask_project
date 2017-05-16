@@ -6,6 +6,8 @@ from pymongo.cursor import Cursor
 import json
 from flask import current_app as app
 from mongoengine import connect
+from threading import Thread
+
 
 def bson_handler(x):
     """
@@ -71,3 +73,15 @@ def get_database():
     """
     client = connect(host=app.config['MONGODB_STRING'], db=app.config['MONGODB_DATABASE'])
     return client[app.config['MONGODB_DATABASE']]
+
+
+def async(f):
+    """
+    decorator for async execution
+    :param f:
+    :return:
+    """
+    def wrapper(*args, **kwargs):
+        thr = Thread(target=f, args=args, kwargs=kwargs)
+        thr.start()
+    return wrapper

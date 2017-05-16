@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c972f7c9-80b6-48c6-b1eb-5b7cd56abc57" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/User.py" afterPath="$PROJECT_DIR$/Models/User.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Users.py" afterPath="$PROJECT_DIR$/views/Users.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Utils/utils.py" afterPath="$PROJECT_DIR$/Utils/utils.py" />
     </list>
     <ignored path="testServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Utils/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="40" column="12" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+            <state relative-caret-position="-594">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -82,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Message.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Message.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/Message.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="177">
+              <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -147,11 +145,11 @@
         <option value="$PROJECT_DIR$/views/test.py" />
         <option value="$PROJECT_DIR$/server.py" />
         <option value="$PROJECT_DIR$/views/__init__.py" />
-        <option value="$PROJECT_DIR$/Utils/utils.py" />
         <option value="$PROJECT_DIR$/Utils/Validation.py" />
         <option value="$PROJECT_DIR$/URLs.py" />
         <option value="$PROJECT_DIR$/Models/User.py" />
         <option value="$PROJECT_DIR$/views/Users.py" />
+        <option value="$PROJECT_DIR$/Utils/utils.py" />
       </list>
     </option>
   </component>
@@ -906,16 +904,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="40" column="12" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utils/Validation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -980,8 +968,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/Message.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="177">
+          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-594">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
