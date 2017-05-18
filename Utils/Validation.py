@@ -1,25 +1,23 @@
 class RequestValidation():
     @staticmethod
     def parameters_assertion(parameters):
+        """
+        Decorator for assertion parameters
+        :param parameters:
+        :return:
+        """
         def assertions(func):
             def func_wrapper(self,*args,**kwargs):
                 for parameter in parameters:
                     if parameter not in self.request.args:
                         raise Exception('Error parameter')
                 return func(self,*args,**kwargs)
-
             return func_wrapper
-
         return assertions
 
-    def parameter_existance(self, parameter, dict):
-        if parameter in dict:
-            return True
-        else:
-            raise Exception('Error parameter')
-
-    def parameters_existance(self, parameters, dict):
-        for parameter in parameters:
-            self.parameter_existance(parameter, dict)
-
+    @staticmethod
+    def parameter_assertion(dictionary, params):
+        for val in params:
+            if val not in dictionary:
+                return False
         return True
