@@ -30,14 +30,12 @@ def bson_handler(x):
     elif isinstance(x, str):
         return x
     elif isinstance(x, Exception):
-        print(x.errno, x.strerror)
         return {
-            'error': x.strerror,
-            'error_number': x.errno
-        }
+            'error':True,
+            'error_str':  x.strerror if hasattr(x, 'strerror') and x.strerror else ''
+            }
     else:
         return str(x)
-        raise TypeError(x)
 
 
 def json_response(func):
